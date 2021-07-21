@@ -6,6 +6,7 @@ import Search from "../components/Search/Search";
 import DailyWeather from "../components/DailyWeather/DailyWeather";
 import HourlyWeather from "../components/HourlyWeather/HourlyWeather";
 
+
 interface MyLocation {
   Latitude?: number;
   Longitude?: number;
@@ -22,6 +23,8 @@ interface Weather {
 interface weather {
   main?: string;
   id?: number;
+    icon?:string
+
 }
 interface Currentweather {
     temp?: number;
@@ -60,6 +63,9 @@ const WeatherPage = () => {
     Hourly: [],
     Minutely: [],
   });
+
+  const [city, setCity] = useState('')
+
   //361ac82e2185de2e626bb5ffa95f8289
   const API_ID: string = "e3a4e39f4c824772f7d35bc0b095f245";
   const LOCATION_API: string = `http://api.openweathermap.org/geo/1.0/reverse?lat=${location.Latitude}&lon=${location.Longitude}&appid=${API_ID}`;
@@ -130,14 +136,14 @@ const WeatherPage = () => {
         }}
       >
         <Header />
-        <Search />
+        <Search city={city} setCity={setCity}/>
       </div>
       <div
         style={{
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
-          marginLeft:'20px'
+        //   marginLeft:'20px'
         }}
       >
         <Location location={location} />

@@ -1,20 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import './Search.css'
-const Search = () => {
-    const [input, setInput] = useState("");
-    const [data, setData] = useState([]);
+import cities from '../../cities.json'
 
+
+interface Props {
+  city: string;
+  // setCity:()=>void;
+}
+
+const Search:FC<Props> = (props) => {
+  
+  const [input, setInput] = useState("");
+  
+  const searchedCity = cities.filter(data=>data.name.toLowerCase().includes(input.toLowerCase()))
+  console.log(searchedCity)
+  
     function handleChange (e:React.ChangeEvent<HTMLInputElement>):void {
         const { value } = e.target;
         setInput(value);
       }
-      function clickEvent(e: React.MouseEvent<HTMLButtonElement>) :void{
-        console.log('it works!')
+      function clickEvent(e: React.MouseEvent<HTMLLIElement>){
+        const input = e.target as HTMLLIElement;
+        // input.innerText
+        setInput('')
     }
     let clear = input.length>1? 'fa fa-close icon2': 'none'
     let search = input.length>1? 'form-control input-search': 'form-control'
     let searchList = input.length>1? 'suggestions': 'no-suggestions'
-
 
     return (
         <div>
@@ -41,34 +53,17 @@ const Search = () => {
               />
           {input.length > 1 ? 
               <ul className={searchList} style={{position:"absolute"}}>
-                <li>
-                  Hii
+                
+                {searchedCity.map((data)=>
+                <li key={data.id} onClick={(e:React.MouseEvent<HTMLLIElement>)=>clickEvent(e)} >
+                  {data.name}
                   <i
-                onClick={clickEvent}
+                
                 className='fa fa-search icon1'
               ></i>
                 </li>
-                <li>
-                  Hii
-                  <i
-                onClick={clickEvent}
-                className='fa fa-search icon1'
-              ></i>
-                </li>
-                <li>
-                  Hii
-                  <i
-                onClick={clickEvent}
-                className='fa fa-search icon1'
-              ></i>
-                </li>
-                <li>
-                  Hii
-                  <i
-                onClick={clickEvent}
-                className='fa fa-search icon1'
-              ></i>
-                </li>   
+                )}
+                  
         </ul>
            : 
            <></>
