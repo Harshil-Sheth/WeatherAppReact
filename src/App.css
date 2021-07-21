@@ -1,0 +1,25 @@
+  .bg {
+    /* The image used */
+    background-image: url("bg.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .scroll::-webkit-scrollbar {   
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+.scroll::-webkit-scrollbar-track {
+    /* display: none; */
+    background-color: rgba(0, 0, 0, 0.35);
+    
+}
+.scroll::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.7);
+}
