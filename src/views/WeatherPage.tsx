@@ -6,7 +6,6 @@ import Search from "../components/Search/Search";
 import DailyWeather from "../components/DailyWeather/DailyWeather";
 import HourlyWeather from "../components/HourlyWeather/HourlyWeather";
 
-
 interface MyLocation {
   Latitude?: number;
   Longitude?: number;
@@ -23,30 +22,29 @@ interface Weather {
 interface weather {
   main?: string;
   id?: number;
-    icon?:string
-
+  icon?: string;
 }
 interface Currentweather {
-    temp?: number;
-    feels_like?: number;
-    wind_speed?: number;
-    visibility?: number;
-    humidity?: number;
-    weather?: Array<weather>;
+  temp?: number;
+  feels_like?: number;
+  wind_speed?: number;
+  visibility?: number;
+  humidity?: number;
+  weather?: Array<weather>;
 }
 interface Dailyweather {
-    temp?: Object;
-    dt: number;
-    wind_speed?: number;
-    humidity?: number;
-    sunrise?: number;
+  temp?: Object;
+  dt: number;
+  wind_speed?: number;
+  humidity?: number;
+  sunrise?: number;
   weather?: Array<weather>;
 }
 interface Hourlyweather {
-    temp?: Object;
-    dt: number;
-    wind_speed?: number;
-    humidity?: number; 
+  temp?: Object;
+  dt: number;
+  wind_speed?: number;
+  humidity?: number;
   weather?: Array<weather>;
 }
 
@@ -64,12 +62,13 @@ const WeatherPage = () => {
     Minutely: [],
   });
 
-  const [city, setCity] = useState('')
-
+  const [city, setCity] = useState("");
+  // console.log(location);
   //361ac82e2185de2e626bb5ffa95f8289
   const API_ID: string = "e3a4e39f4c824772f7d35bc0b095f245";
   const LOCATION_API: string = `http://api.openweathermap.org/geo/1.0/reverse?lat=${location.Latitude}&lon=${location.Longitude}&appid=${API_ID}`;
   const WEATHER_API: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.Latitude}&lon=${location.Longitude}&units=metric&appid=${API_ID}`;
+  const LATLON_API: string = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_ID}`;
   useEffect(() => {
     if ("geolocation" in navigator) {
       if (location.Latitude === undefined || location.Longitude === undefined) {
@@ -124,6 +123,26 @@ const WeatherPage = () => {
     }
   }, [LOCATION_API, location, WEATHER_API, weather]);
 
+  useEffect(() => {
+    var requestOptions: RequestInit = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch(LATLON_API, requestOptions)
+      .then((response) => response.json())
+      .then((result) =>
+        {
+          console.log(result)
+          var latlon= result.map(({ lat, lon }: any): Object => {
+          return { lon, lat };
+        })
+      setLocation({Longitude:latlon[0].lon,Latitude:latlon[0].lat,Area:latlon[0].name,Country:'IN'})
+      }
+      )
+      .catch((error) => console.log("error", error));
+  }, [LATLON_API]);
+
   return (
     <div>
       <div
@@ -136,14 +155,14 @@ const WeatherPage = () => {
         }}
       >
         <Header />
-        <Search city={city} setCity={setCity}/>
+        <Search setcity={setCity} />
       </div>
       <div
         style={{
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
-        //   marginLeft:'20px'
+          //   marginLeft:'20px'
         }}
       >
         <Location location={location} />
@@ -151,8 +170,8 @@ const WeatherPage = () => {
       </div>
       <div>
         <DailyWeather dailyWeather={weather.Daily} />
-        <HourlyWeather hourlyWeather={weather.Hourly}/>
-        </div>
+        <HourlyWeather hourlyWeather={weather.Hourly} />
+      </div>
     </div>
   );
 };

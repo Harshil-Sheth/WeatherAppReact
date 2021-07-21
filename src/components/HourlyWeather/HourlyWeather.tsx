@@ -31,7 +31,7 @@ const HourlyWeather: FC<Props> = (props) => {
                 <div  style={{fontSize:'14px',display:'flex',flexDirection:'column',justifyContent:'space-between'}}><span style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
                 <svg width="14" height="14" viewBox="0 0 10 14" style={{transform:'rotate(60deg)'}}><path d="M5 0L9.66895 14L5 9.33105L0.331055 14L5 0Z" ></path></svg>
                 {data.wind_speed} km/h</span><span style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
-                <img src={water_drop} />
+                <img src={water_drop} alt='humidity'/>
                 {data.humidity}%</span></div>
                  </div>
           </li>;

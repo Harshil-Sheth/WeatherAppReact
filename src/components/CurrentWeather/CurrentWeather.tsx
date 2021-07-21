@@ -22,13 +22,13 @@ const CurrentWeather :FC<Props> = (props) => {
     const feels_temp = props.currentWeather.feels_like +'°C'
     const weather =props.currentWeather.weather?.map((data)=>data.main)
     const weatherIcon =props.currentWeather.weather?.map((data)=>data.icon)
-    
-    const iconSrc ='http://openweathermap.org/img/wn/'+ weatherIcon +'.png'
-    
+    const newIcon = weatherIcon&&weatherIcon[0]
+    const iconSrc ='http://openweathermap.org/img/wn/'+ newIcon +'.png'
+    console.log(iconSrc)
     const visibility = props.currentWeather.visibility?props.currentWeather.visibility/1000:props.currentWeather.visibility
     return (
         <div style={{display:'flex',flexDirection:'column',alignItems:'center',background:'rgba(255, 255, 255, 0.28)',borderRadius:'15px',padding:'30px'}}>
-            <div style={{display:'flex',alignItems:'center',justifyContent:'space-evenly',width:'350px'}}>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'space-evenly',width:'500px'}}>
             <h1>{temp}</h1>
             <div style={{display:'flex',alignItems:'center',justifyContent:'space-evenly',flexDirection:'row'}}>
             <h2>{weather}</h2>     

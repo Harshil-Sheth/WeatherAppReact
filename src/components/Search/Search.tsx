@@ -1,11 +1,10 @@
-import React, { FC, useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import './Search.css'
 import cities from '../../cities.json'
 
 
 interface Props {
-  city: string;
-  // setCity:()=>void;
+  setcity:Dispatch<SetStateAction<string>>;
 }
 
 const Search:FC<Props> = (props) => {
@@ -13,7 +12,6 @@ const Search:FC<Props> = (props) => {
   const [input, setInput] = useState("");
   
   const searchedCity = cities.filter(data=>data.name.toLowerCase().includes(input.toLowerCase()))
-  console.log(searchedCity)
   
     function handleChange (e:React.ChangeEvent<HTMLInputElement>):void {
         const { value } = e.target;
@@ -21,6 +19,7 @@ const Search:FC<Props> = (props) => {
       }
       function clickEvent(e: React.MouseEvent<HTMLLIElement>){
         const input = e.target as HTMLLIElement;
+        props.setcity(input.innerText)
         // input.innerText
         setInput('')
     }
