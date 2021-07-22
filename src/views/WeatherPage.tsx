@@ -133,7 +133,6 @@ const WeatherPage = () => {
       .then((response) => response.json())
       .then((result) =>
         {
-          console.log(result)
           var latlon= result.map(({ lat, lon }: any): Object => {
           return { lon, lat };
         })
