@@ -23,7 +23,7 @@ const CurrentWeather :FC<Props> = (props) => {
     const weather =props.currentWeather.weather?.map((data)=>data.main)
     const weatherIcon =props.currentWeather.weather?.map((data)=>data.icon)
     const newIcon = weatherIcon&&weatherIcon[0]
-    const iconSrc ='http://openweathermap.org/img/wn/'+ newIcon +'.png'
+    const iconSrc ='https://openweathermap.org/img/wn/'+ newIcon +'.png'
     const visibility = props.currentWeather.visibility?props.currentWeather.visibility/1000:props.currentWeather.visibility
     return (
         <div className='currentWeather' style={{display:'flex',flexDirection:'column',alignItems:'center',background:'rgba(255, 255, 255, 0.28)',borderRadius:'15px',padding:'30px',width:'760px'}}>

@@ -38,7 +38,7 @@ const DailyWeather: FC<Props> = (props) => {
           
           var icon = data.weather?.map(({icon})=>icon)
           const newicon = icon&&icon[0]
-          const iconSrc ='http://openweathermap.org/img/wn/'+ newicon +'.png'
+          const iconSrc ='https://openweathermap.org/img/wn/'+ newicon +'.png'
           
              return  <li key={data.sunrise} style={{ padding: "8px"}}>
             <button style={{height:'200px',border:'none',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)',padding:'10px'}}>

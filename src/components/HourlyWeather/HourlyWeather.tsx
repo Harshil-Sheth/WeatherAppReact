@@ -50,7 +50,7 @@ const HourlyWeather: FC<Props> = (props) => {
         {props.hourlyWeather.map((data, index, array) => {
          var icon = data.weather?.map(({icon})=>icon)
          const newicon = icon&&icon[0]
-         const iconSrc ='http://openweathermap.org/img/wn/'+ newicon +'.png'
+         const iconSrc ='https://openweathermap.org/img/wn/'+ newicon +'.png'
           return (
             <li key={data.dt} style={{ padding: "11px"}}>
               <div

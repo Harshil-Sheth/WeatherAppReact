@@ -68,9 +68,9 @@ const WeatherPage = () => {
   // console.log(location);
   //361ac82e2185de2e626bb5ffa95f8289
   const API_ID: string = "e3a4e39f4c824772f7d35bc0b095f245";
-  const LOCATION_API: string = `http://api.openweathermap.org/geo/1.0/reverse?lat=${location.Latitude}&lon=${location.Longitude}&appid=${API_ID}`;
+  const LOCATION_API: string = `https://api.openweathermap.org/geo/1.0/reverse?lat=${location.Latitude}&lon=${location.Longitude}&appid=${API_ID}`;
   const WEATHER_API: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.Latitude}&lon=${location.Longitude}&units=metric&appid=${API_ID}`;
-  const LATLON_API: string = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_ID}`;
+  const LATLON_API: string = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_ID}`;
   useEffect(() => {
     if ("geolocation" in navigator) {
       if (location.Latitude === undefined || location.Longitude === undefined) {
