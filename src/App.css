@@ -99,5 +99,15 @@
   .inputsearch {
     width: 300px!important;
   }
-  
+  .currentWeather {
+    width: 430px!important;
+    /* padding:20px!important; */
+  }
 }
+@media screen and (max-width: 450px) {
+  .currentWeather {
+    width: 410px!important;
+    /* padding:20px!important; */
+  }
+}
+
