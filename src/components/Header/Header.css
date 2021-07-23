@@ -1,7 +1,8 @@
 .header{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    width:800px
 }
 .headLink{
     color: black;
