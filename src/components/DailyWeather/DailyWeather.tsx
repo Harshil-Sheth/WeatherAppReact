@@ -41,7 +41,7 @@ const DailyWeather: FC<Props> = (props) => {
           const iconSrc ='https://openweathermap.org/img/wn/'+ newicon +'.png'
           
              return  <li key={data.sunrise} style={{ padding: "8px"}}>
-            <button style={{height:'200px',border:'none',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)',padding:'10px'}}>
+            <div style={{height:'200px',border:'none',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)',padding:'10px'}}>
               <span style={{height:'150px',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
                 <div>
                 <p style={{margin:'0px'}}>{new Date(data.dt * 1000).toLocaleDateString()===currentDate?'Today':new Date(data.dt * 1000).toLocaleDateString()===tomorrowDate?'Tomorrow': new Date(data.dt * 1000).toDateString()}</p>
@@ -54,7 +54,7 @@ const DailyWeather: FC<Props> = (props) => {
                 <span style={{display:'flex', justifyContent:'center',alignItems:'center'}}><img src={water_drop} alt='humidity'/>{data.humidity}%</span></div>
                 <div style={{width:'120px',fontSize:'18px',display:'flex',justifyContent:'space-between',textAlign:'center'}}><span>&#9660;27°C</span><span>&#9650;36°C</span></div>
               </span>
-            </button>
+            </div>
           </li>;
 })}
       </ul>
