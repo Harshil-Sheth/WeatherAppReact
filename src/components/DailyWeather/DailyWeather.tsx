@@ -30,15 +30,17 @@ const DailyWeather: FC<Props> = (props) => {
     const tomorrowDate = tomorrow.toLocaleDateString();
     
     return (
-      <div style={{overflow:'hidden',padding:'50px',display:'flex',flexDirection:'column'}}>
-        <h1 style={{marginLeft:'30px',marginBottom:'30px'}}>Daily Forecast</h1>
-      <ul style={{display:'flex', justifyContent:'space-around',listStyle:'none',paddingLeft:'0px',whiteSpace:'nowrap'}}>
+      <div style={{padding:'50px',display:'flex',flexDirection:'column'}}>
+        <h1 style={{marginLeft:'30px',marginBottom:'30px',width:'280px',padding:'10px',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)'}}>Daily Forecast</h1>
+      <ul className="scroll" style={{display:'flex', justifyContent:'space-between',listStyle:'none',paddingLeft:'0px',height: "240px",
+}}>
         {props.dailyWeather.map((data) =>{
+          
           var icon = data.weather?.map(({icon})=>icon)
           const newicon = icon&&icon[0]
           const iconSrc ='http://openweathermap.org/img/wn/'+ newicon +'.png'
           
-             return  <li key={data.sunrise}>
+             return  <li key={data.sunrise} style={{ padding: "8px"}}>
             <button style={{height:'200px',border:'none',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)',padding:'10px'}}>
               <span style={{height:'150px',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
                 <div>

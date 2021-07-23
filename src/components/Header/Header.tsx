@@ -3,7 +3,7 @@ const Header : any = () => {
 
   return (
     <div className="header">
-      <h1>Weather App</h1>
+      <a className='headLink' href='http://localhost:3000'><h1 >Weather App</h1></a>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import Location from "../components/Location/Location";
 import Search from "../components/Search/Search";
 import DailyWeather from "../components/DailyWeather/DailyWeather";
 import HourlyWeather from "../components/HourlyWeather/HourlyWeather";
+import Loader from "../components/Loader/Loader";
 
 interface MyLocation {
   Latitude?: number;
@@ -63,6 +64,7 @@ const WeatherPage = () => {
   });
 
   const [city, setCity] = useState("");
+  const [loading,setLoading]= useState(true)
   // console.log(location);
   //361ac82e2185de2e626bb5ffa95f8289
   const API_ID: string = "e3a4e39f4c824772f7d35bc0b095f245";
@@ -87,6 +89,12 @@ const WeatherPage = () => {
   }, [location]);
 
   useEffect(() => {
+  location.Area===undefined?
+  setLoading(true)
+  :
+  setTimeout(() => {
+    setLoading(false)
+  }, 1000);
     if (
       location.Latitude !== undefined &&
       location.Longitude !== undefined &&
@@ -110,7 +118,7 @@ const WeatherPage = () => {
 
       fetch(WEATHER_API, requestOptions)
         .then((response) => response.json())
-        .then((result) =>
+        .then((result) =>{
           setWeather({
             ...weather,
             Current: result.current,
@@ -118,6 +126,8 @@ const WeatherPage = () => {
             Hourly: result.hourly,
             Minutely: result.minutely,
           })
+  setLoading(false)
+        }
         )
         .catch((error) => console.log("error", error));
     }
@@ -142,9 +152,14 @@ const WeatherPage = () => {
       .catch((error) => console.log("error", error));
   }, [LATLON_API]);
 
-  return (
-    <div>
+
+  return (<div>
+      {loading?
+      <Loader />
+      :
+      <div>
       <div
+      className='headingsearch'
         style={{
           display: "flex",
           justifyContent: "space-around",
@@ -157,6 +172,7 @@ const WeatherPage = () => {
         <Search setcity={setCity} />
       </div>
       <div
+      className='headingsearch'
         style={{
           display: "flex",
           justifyContent: "space-around",
@@ -171,7 +187,9 @@ const WeatherPage = () => {
         <DailyWeather dailyWeather={weather.Daily} />
         <HourlyWeather hourlyWeather={weather.Hourly} />
       </div>
-    </div>
+      </div>
+}
+      </div>
   );
 };
 

@@ -23,24 +23,26 @@ const HourlyWeather: FC<Props> = (props) => {
   return (
     <div
       style={{
-        padding: "50px",
+        paddingBottom: "50px",
+        paddingLeft: "50px",
+        paddingRight: "50px",
         display: "flex",
         flexDirection: "column",
       }}
     >
-      <h1 style={{ marginLeft: "30px", marginBottom: "30px" }}>
+      <h1 style={{ marginLeft: "30px", marginBottom: "30px" ,width:'320px',padding:'10px',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)'}}>
         Hourly Forecast
       </h1>
       <ul
         className="scroll"
         style={{
           display: "flex",
-          overflow: "overlay",
-          overflowY: "hidden",
+          // overflow: "overlay",
+          // overflowY: "hidden",
           justifyContent: "space-between",
           listStyle: "none",
           paddingLeft: "0px",
-          whiteSpace: "nowrap",
+          // whiteSpace: "nowrap",
           margin: 0,
           height: "260px",
         }}
@@ -62,8 +64,8 @@ const HourlyWeather: FC<Props> = (props) => {
                   background: "rgba(255, 255, 255, 0.28)",
                   padding: "15px",
                   textAlign: "center",
-                  overflow:'hidden',
-                  whiteSpace:'pre-line'                  
+                  // overflow:'hidden',
+                  // whiteSpace:'pre-line'                  
                 }}
               >
                 <span style={{ margin: "0px",fontSize:'13px'  }}>

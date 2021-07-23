@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import './Search.css'
 import cities from '../../cities.json'
 
@@ -24,7 +24,7 @@ const Search:FC<Props> = (props) => {
         let existingCities:Array<String> = []
         localStorage.getItem("cities")!==null&&(JSON.parse(localStorage.getItem("cities")||"")).map((data:any)=>existingCities.push(data))
         
-        existingCities.length<6?existingCities.push(input.innerText):existingCities.shift(); existingCities.push(input.innerText);
+        existingCities.length<5?existingCities.push(input.innerText):existingCities.shift(); existingCities.push(input.innerText);
         let newcities =existingCities&& new Set(existingCities)
         let uniqueCities = Array.from(newcities);
           localStorage.setItem("cities", JSON.stringify(uniqueCities));
@@ -34,10 +34,9 @@ const Search:FC<Props> = (props) => {
       function clickEvent2(e: React.MouseEvent<HTMLDivElement>){
         const input = e.target as HTMLDivElement;
         props.setcity(input.innerText)
-        console.log(input.innerText)
         let existingCities:Array<String> = []
         localStorage.getItem("cities")!==null&&(JSON.parse(localStorage.getItem("cities")||"")).map((data:any)=>existingCities.push(data))
-        existingCities.length<6?existingCities.push(input.innerText):existingCities.shift(); existingCities.push(input.innerText);
+        existingCities.length<5?existingCities.push(input.innerText):existingCities.shift(); existingCities.push(input.innerText);
         let newcities =existingCities&& new Set(existingCities)
       let uniqueCities = Array.from(newcities);
         localStorage.setItem("cities", JSON.stringify(uniqueCities));
@@ -45,17 +44,16 @@ const Search:FC<Props> = (props) => {
         setInput('')
       }
     let clear = input.length>1? 'fa fa-close icon2': 'none'
-    let search = input.length>1? 'form-control input-search': 'form-control'
-    let searchList = input.length>1? 'suggestions': 'no-suggestions'
+    let search = input.length>1? 'form-control input-search inputsearch': 'form-control inputsearch'
+    let searchList = input.length>1? 'suggestions inputsearch': 'no-suggestions inputsearch'
 
 
-    // useEffect(() => {
-    //   let searchedCities = JSON.parse(localStorage.getItem("cities")||"")
-    //   let newcities =searchedCities&& new Set(searchedCities)
-    //   newcities = Array.from(newcities);
-    //   setSearchedCities(newcities);
-    //   console.log('fired')
-    // },[])
+    useEffect(() => {
+      let searchedCities = localStorage.getItem("cities")&&JSON.parse(localStorage.getItem("cities")||"")
+      let newcities =searchedCities&& new Set(searchedCities)
+      newcities =newcities&& Array.from(newcities);
+      setSearchedCities(newcities);
+    },[])
 
 
     return (
@@ -103,7 +101,7 @@ const Search:FC<Props> = (props) => {
                 className={clear}
               ></i>
             </div>
-            {searchedCities.length>0?
+            {searchedCities&&searchedCities.length>0?
             <div style={{display:'flex',justifyContent:'center',margin:'5px',alignItems:'center'}}>
               Recent: 
             {searchedCities.map((data:any)=>
