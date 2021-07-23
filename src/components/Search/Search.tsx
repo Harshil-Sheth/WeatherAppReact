@@ -62,11 +62,11 @@ const Search:FC<Props> = (props) => {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "center"
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              <div>
+              <div >
               <input
                 type="text"
                 className={search}
