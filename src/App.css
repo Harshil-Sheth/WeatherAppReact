@@ -110,4 +110,16 @@
     /* padding:20px!important; */
   }
 }
+@media screen and (max-width: 400px) {
+  .hourlycontainer {
+        padding-left: 30px!important;
+        padding-right: 30px!important;
+  }
+}
+@media screen and (max-width: 420px) {
+  .currentWeather {
+    width: 360px!important;
+    padding:10px!important;
+  }
+}
 

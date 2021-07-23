@@ -22,6 +22,7 @@ interface Props {
 const HourlyWeather: FC<Props> = (props) => {
   return (
     <div
+    className='hourlycontainer'
       style={{
         paddingBottom: "50px",
         paddingLeft: "50px",

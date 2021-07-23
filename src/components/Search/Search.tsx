@@ -58,7 +58,11 @@ const Search:FC<Props> = (props) => {
 
     return (
         <div style={{
-          width:'100%'
+          width:'100%',
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}>
             <div
               style={{
@@ -68,7 +72,7 @@ const Search:FC<Props> = (props) => {
                 alignItems: "center",
               }}
             >
-              <div >
+              <div>
               <input
                 type="text"
                 className={search}
@@ -104,7 +108,7 @@ const Search:FC<Props> = (props) => {
           ></i>
             </div>
             {searchedCities&&searchedCities.length>0?
-            <div style={{display:'flex',justifyContent:'center',margin:'5px',alignItems:'center'}}>
+            <div className='searchedCity' style={{display:'flex',justifyContent:'center',margin:'5px',alignItems:'center',width:'100%',flexWrap:'wrap'}}>
               Recent: 
             {searchedCities.map((data:any)=>
             

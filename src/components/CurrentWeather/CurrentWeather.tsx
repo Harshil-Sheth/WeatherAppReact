@@ -28,9 +28,9 @@ const CurrentWeather :FC<Props> = (props) => {
     return (
         <div className='currentWeather' style={{display:'flex',flexDirection:'column',alignItems:'center',background:'rgba(255, 255, 255, 0.28)',borderRadius:'15px',padding:'30px',width:'760px'}}>
             <div style={{display:'flex',alignItems:'center',justifyContent:'space-evenly',width:'100%'}}>
-            <h1>{temp}</h1>
+            <h1 style={{margin:0}}>{temp}</h1>
             <div style={{display:'flex',alignItems:'center',justifyContent:'space-evenly',flexDirection:'row'}}>
-            <h2>{weather}</h2>     
+            <h2 style={{margin:0}}>{weather}</h2>     
             <img src={iconSrc} alt='weather-icon'/>   
             </div>
             </div>
