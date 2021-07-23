@@ -46,6 +46,11 @@
     flex-direction: column;
   }
 }
+@media screen and (max-width: 992px) {
+  .header {
+    width:100%
+  }
+}
 @media screen and (max-width: 830px) {
   .currentWeather {
     margin-top: 20px;
