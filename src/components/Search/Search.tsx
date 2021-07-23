@@ -57,7 +57,9 @@ const Search:FC<Props> = (props) => {
 
 
     return (
-        <div>
+        <div style={{
+          width:'100%'
+        }}>
             <div
               style={{
                 display: "flex",
@@ -96,10 +98,10 @@ const Search:FC<Props> = (props) => {
            <></>
           }
         </div>
-              <i
-                onClick={() => setInput('')}
-                className={clear}
-              ></i>
+          <i
+            onClick={() => setInput('')}
+            className={clear}
+          ></i>
             </div>
             {searchedCities&&searchedCities.length>0?
             <div style={{display:'flex',justifyContent:'center',margin:'5px',alignItems:'center'}}>

@@ -41,7 +41,6 @@
   align-items: center;
 }
 
-
 @media screen and (max-width: 992px) {
   .headingsearch {
     flex-direction: column;
@@ -75,11 +74,14 @@
   .currentWeather {
     width: 460px!important;
   }
- 
+ .weatherHeader{
+   margin-left:0!important;
+ }
 }
 @media screen and (max-width: 500px) {
   .currentWeather {
-    width: 400px!important;
+    width: 450px!important;
+    padding:20px!important;
   }
  
 }

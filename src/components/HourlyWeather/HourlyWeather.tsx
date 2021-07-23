@@ -30,7 +30,7 @@ const HourlyWeather: FC<Props> = (props) => {
         flexDirection: "column",
       }}
     >
-      <h1 style={{ marginLeft: "30px", marginBottom: "30px" ,width:'320px',padding:'10px',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)'}}>
+      <h1 className='weatherHeader' style={{ marginLeft: "30px", marginBottom: "30px" ,width:'320px',padding:'10px',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)'}}>
         Hourly Forecast
       </h1>
       <ul

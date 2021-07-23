@@ -31,8 +31,10 @@ const DailyWeather: FC<Props> = (props) => {
     
     return (
       <div style={{padding:'50px',display:'flex',flexDirection:'column'}}>
-        <h1 style={{marginLeft:'30px',marginBottom:'30px',width:'280px',padding:'10px',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)'}}>Daily Forecast</h1>
-      <ul className="scroll" style={{display:'flex', justifyContent:'space-between',listStyle:'none',paddingLeft:'0px',height: "240px",
+        <div className='weatherHeader' style={{marginLeft:'30px',marginBottom:'30px',width:'280px',padding:'10px',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)'}}>
+        <h1 >Daily Forecast</h1>
+        </div>
+      <ul className="scroll" style={{display:'flex', justifyContent:'space-between',listStyle:'none',paddingLeft:'0px',height: "240px",textAlign:'center'
 }}>
         {props.dailyWeather.map((data) =>{
           
@@ -42,7 +44,7 @@ const DailyWeather: FC<Props> = (props) => {
           
              return  <li key={data.sunrise} style={{ padding: "8px"}}>
             <div style={{height:'200px',border:'none',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)',padding:'10px'}}>
-              <span style={{height:'150px',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
+              <span style={{height:'100%',display:'flex',flexDirection:'column',justifyContent:'space-evenly'}}>
                 <div>
                 <p style={{margin:'0px'}}>{new Date(data.dt * 1000).toLocaleDateString()===currentDate?'Today':new Date(data.dt * 1000).toLocaleDateString()===tomorrowDate?'Tomorrow': new Date(data.dt * 1000).toDateString()}</p>
                 <div style={{display:'flex',flexDirection:'row',justifyContent:'center', alignItems:'center'}}><div>{data.weather?.map(({ main }) => main)} </div><div><img src={iconSrc} alt='weather-icon'/></div></div>
