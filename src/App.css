@@ -1,6 +1,6 @@
   .bg {
     /* The image used */
-    background-image: url("bg.jpg");
+    background-image: url("25503.jpg");
   
     /* Full height */
     height: 100%;
@@ -73,15 +73,16 @@
   .currentWeather {
     width: 560px!important;
   }
+  .weatherContainer{
+    padding: 30px!important;
+  }
  
 }
 @media screen and (max-width: 600px) {
   .currentWeather {
     width: 460px!important;
   }
- .weatherHeader{
-   margin-left:0!important;
- }
+ 
 }
 @media screen and (max-width: 500px) {
   .currentWeather {
@@ -94,6 +95,9 @@
   .inputsearch {
     width: 400px!important;
   }
+  .weatherContainer{
+    padding:20px!important;
+  }
 }
 @media screen and (max-width: 480px) {
   .inputsearch {
@@ -103,6 +107,10 @@
     width: 430px!important;
     /* padding:20px!important; */
   }
+  .weatherHeader{
+    margin-left: 10px!important;
+    margin-top: 10px!important;
+  }
 }
 @media screen and (max-width: 450px) {
   .currentWeather {
@@ -110,12 +118,12 @@
     /* padding:20px!important; */
   }
 }
-@media screen and (max-width: 400px) {
+/* @media screen and (max-width: 400px) {
   .hourlycontainer {
         padding-left: 30px!important;
         padding-right: 30px!important;
   }
-}
+} */
 @media screen and (max-width: 420px) {
   .currentWeather {
     width: 360px!important;

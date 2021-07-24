@@ -138,19 +138,21 @@ const WeatherPage = () => {
       method: "GET",
       redirect: "follow",
     };
+if(city){
 
-    fetch(LATLON_API, requestOptions)
-      .then((response) => response.json())
-      .then((result) =>
-        {
-          var latlon= result.map(({ lat, lon }: any): Object => {
+  fetch(LATLON_API, requestOptions)
+  .then((response) => response.json())
+  .then((result) =>
+  {
+    var latlon= result.map(({ lat, lon }: any): Object => {
           return { lon, lat };
         })
       setLocation({Longitude:latlon[0].lon,Latitude:latlon[0].lat,Area:latlon[0].name,Country:'IN'})
       }
       )
       .catch((error) => console.log("error", error));
-  }, [LATLON_API]);
+    }
+  }, [LATLON_API,city]);
 
 
   return (<div>

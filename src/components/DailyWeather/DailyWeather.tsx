@@ -30,7 +30,7 @@ const DailyWeather: FC<Props> = (props) => {
     const tomorrowDate = tomorrow.toLocaleDateString();
     
     return (
-      <div style={{padding:'50px',display:'flex',flexDirection:'column'}}>
+      <div className='weatherContainer' style={{padding:'50px',display:'flex',flexDirection:'column'}}>
         <div className='weatherHeader' style={{marginLeft:'30px',marginBottom:'30px',width:'280px',padding:'10px',borderRadius:'10px',background:'rgba(255, 255, 255, 0.28)'}}>
         <h1 >Daily Forecast</h1>
         </div>
