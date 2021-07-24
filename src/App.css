@@ -76,7 +76,9 @@
   .weatherContainer{
     padding: 30px!important;
   }
- 
+  .headingsearch {
+    padding-bottom: 30px!important;
+  }
 }
 @media screen and (max-width: 600px) {
   .currentWeather {
