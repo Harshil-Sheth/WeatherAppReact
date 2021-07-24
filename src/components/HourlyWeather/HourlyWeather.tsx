@@ -75,8 +75,8 @@ const HourlyWeather: FC<Props> = (props) => {
                     minute: "2-digit",
                   }) +
                     " - " +
-                    (new Date(index === array.length - 1 ? "" : array[index + 1].dt).toLocaleTimeString([], {hour: "2-digit",minute: "2-digit",})==='Invalid Date'?'--':new Date(
-                      index === array.length - 1 ? "" : array[index + 1].dt
+                    (new Date(index === array.length - 1 ? "" : array[index + 1].dt*1000).toLocaleTimeString([], {hour: "2-digit",minute: "2-digit",})==='Invalid Date'?'--':new Date(
+                      index === array.length - 1 ? "" : array[index + 1].dt*1000
                     ).toLocaleTimeString([], {
                       hour: "2-digit",
                       minute: "2-digit",
