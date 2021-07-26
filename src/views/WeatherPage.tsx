@@ -62,11 +62,12 @@ const WeatherPage = () => {
     Hourly: [],
     Minutely: [],
   });
-
   const [city, setCity] = useState("");
   const [loading,setLoading]= useState(true)
+  console.log(location.Latitude,location.Longitude,city)
   // console.log(location);
   //361ac82e2185de2e626bb5ffa95f8289
+ 
   const API_ID: string = "e3a4e39f4c824772f7d35bc0b095f245";
   const LOCATION_API: string = `https://api.openweathermap.org/geo/1.0/reverse?lat=${location.Latitude}&lon=${location.Longitude}&appid=${API_ID}`;
   const WEATHER_API: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.Latitude}&lon=${location.Longitude}&units=metric&appid=${API_ID}`;
